@@ -21,18 +21,18 @@ export class ServerlessPipelineStack extends Stack {
     super(scope, id, props);
 
     /** Codecommit Repository*/
-    const codeCommitRepository = codecommit.Repository.fromRepositoryName(this, 'Imported-repo', 'YOUR-CODECOMMIT-REPO-NAME')
+    const codeCommitRepository = codecommit.Repository.fromRepositoryName(this, 'Imported-repo', 'cdk-serverless-pipeline')
 
 
     /** Code Build Projects */
     const cdkBuild_project = new codebuild.PipelineProject(this, 'CdkBuild', {
-      buildSpec: codebuild.BuildSpec.fromSourceFilename('lib/cdk_buildspec.yml'),
+      buildSpec: codebuild.BuildSpec.fromSourceFilename('buildspec/cdk_buildspec.yml'),
       environment: {
         buildImage: codebuild.LinuxBuildImage.UBUNTU_14_04_NODEJS_8_11_0,
       },
     });
     const lambdaBuild_project = new codebuild.PipelineProject(this, 'LambdaBuild', {
-      buildSpec: codebuild.BuildSpec.fromSourceFilename('lib/lambda_buildspec.yml'),
+      buildSpec: codebuild.BuildSpec.fromSourceFilename('buildspec/lambda_buildspec.yml'),
       environment: {
         buildImage: codebuild.LinuxBuildImage.UBUNTU_14_04_NODEJS_8_11_0,
       },
