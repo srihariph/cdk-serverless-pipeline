@@ -38,6 +38,7 @@ export class ServerlessPipelineStack extends Stack {
       },
     });
 
+
     /** Codepipeline Artifacts */
     const sourceOutputArtifact = new codepipeline.Artifact();
     const cdkBuildOutputArtifact = new codepipeline.Artifact('CdkBuildOutput');

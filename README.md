@@ -8,6 +8,8 @@ The AWS CDK enables this workflow by using the Code* suite of AWS tools: AWS Cod
 In this example, We will be building and deploying a Microservice(Api GW/Lambda).Your AWS CDK code and your Lambda code are in the same repository. 
 The Lambda code is in the `lambda` directory, while your CDK code is in the `bin` and `lib` directories that the cdk init command sets up for your CDK code.
 
+(cdk_serverless_pipeline.png)
+
 
 ## Requirements
 * AWS CLI already configured with Administrator permission
@@ -26,8 +28,13 @@ The Lambda code is in the `lambda` directory, while your CDK code is in the `bin
 6. Do an `npm install` to install Node Dependencies and Build the typescript code using `npm run build`
 7. Deploy the pipeline stack `npm run cdk deploy ServerlessPipelineStack`. After the deployment finishes, you should have a three-stage CodePipeline project in your AWS account.
 
+
+
+
 **Deploying the changes**
-Try making a change, such as to your microservice-stack.ts AWS CDK code or to your Lambda function code, and push it to the repository. The pipeline should pick up your change, build it, and deploy it automatically, without any human intervention.
+Try making a change, such as to your lambda-stack.ts AWS CDK code or to your Lambda function code, and push it to the repository. The pipeline should pick up your change, build it, and deploy it automatically, without any human intervention.
+
+(cdk_serverless_cf.png)
 
 ## Useful npm and cdk commands
 
